@@ -2,6 +2,7 @@
  * Search Engine
  * COP 2805C (Java II) Project
  * Team: Coffee123: Adriel Lopez, Manuel Tamayo
+ * TO DO: Maintanace UI
  */
 
 
@@ -36,7 +37,6 @@ public class UserInterface {
   
   Panel p = new Panel();
   Panel p1 = new Panel();
-//  Panel p2 = new Panel();
   Panel p3 = new Panel();
 
  
@@ -57,7 +57,7 @@ public class UserInterface {
   TextField txtResults = new TextField(30);
   
   
-    
+  // Top panel  
   p.setLayout(new GridLayout(7,2));  // 7 rows 2 columns
   p.add(lblSeachEngine);  p.add(lblLabel1);
   p.add(lblSearchTerms);  p.add(txtSearchTerms);
@@ -71,9 +71,7 @@ public class UserInterface {
   p1.add(p);
   fr.add(p1,BorderLayout.NORTH);   
 
-//  p2.add(lblResults);
-// fr.add(p2,BorderLayout.WEST); 
-
+ // Bottom panel
   Button Maintenance = new Button("Maintenance");
   p3.add(Maintenance);
   Label lblNumOfFiles = new Label("Number of Files Indexed = 0");
