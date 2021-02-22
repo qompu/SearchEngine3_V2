@@ -5,14 +5,13 @@
  */
 package coffee123.searchengine3;
 
-
-
 import java.awt.*;
 import java.awt.Frame;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.Font;
 import java.awt.event.*;
+
 /**
  *
  * @author Team: Coffee123: Adriel Lopez, Manuel Tamayo
@@ -21,9 +20,7 @@ public class UserInterface {
     
   public static void main(String[] args)  {
        UserInterface object = new UserInterface();
-       object.displayUI();
-
-       
+       object.displayUI();   
   }
   
   void displayUI() {
@@ -45,7 +42,6 @@ public class UserInterface {
   Panel p1 = new Panel();
   Panel p2 = new Panel();
   Panel p3 = new Panel();
-
  
   Label lblSeachEngine =new Label("COFFEE123 SEARCH ENGINE");
   Label lblLabel1 =new Label("");
@@ -60,8 +56,7 @@ public class UserInterface {
   Checkbox checkBox3 = new Checkbox("", cbg, false);
   Label lblResults = new Label("Results");
   Label lblBlank1 = new Label("");
- // Label lblBlank2 = new Label("");
- // TextField txtResults = new TextField(30);
+
   
   
   // Top panel  
@@ -102,9 +97,9 @@ public class UserInterface {
             
             Panel p_M = new Panel();  // NORTH
             Panel p_M2 = new Panel();  // EAST
-            Panel p_M3 = new Panel(); 
-            Panel p_M4 = new Panel(); 
-            Panel p_M_Outside = new Panel(); // bottpm panel
+            Panel p_M3 = new Panel();  // bottom 1
+            Panel p_M4 = new Panel();  // bottom 2
+            Panel p_M_Outside = new Panel(); // bottom panel
 
             
             Label lbl_Title =new Label("  SEARCH ENGINE - INDEX MAINTENANCE");
@@ -128,8 +123,8 @@ public class UserInterface {
             fr2.add(p_M,BorderLayout.NORTH); 
             
             
-              // Left panel  WEST
-            p_M2.add(label_one);
+              // Left panel  WEST      
+            p_M2.add(label_one); //diplays Success! label
             fr2.add(p_M2,BorderLayout.WEST); 
             
              // Bottom panel
