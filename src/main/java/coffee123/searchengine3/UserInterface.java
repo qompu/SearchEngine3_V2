@@ -18,11 +18,8 @@ import java.awt.event.*;
  */
 public class UserInterface {
     
-  public static void main(String[] args)  {
-       UserInterface object = new UserInterface();
-       object.displayUI();   
-  }
-  
+
+  // Display User Interface Method
   void displayUI() {
       
   Frame fr=new Frame("Search Engine :: Team: Coffee123");
@@ -182,7 +179,47 @@ public class UserInterface {
   Font BoldFont = new Font("Serif",Font.BOLD,12);
   lblSeachEngine.setFont(BoldFont);
   lblLabel1.setFont(BoldFont);
-
-       
+    
 }
+  // Search Method
+  void Search(){
+      
+  }
+  
+    // About Method
+  void About(){
+      
+  }
+  
+    // AddFile Method
+  void AddFile(){
+      
+  }
+  
+    // Rebuild Out-of-date Method
+  void Rebuild_Outofdate(){
+      
+  }
+  
+    // Remove selected files Method
+  void RemoveSelectedFiles(){
+      
+  }
+  
+    // Reset Windows Method
+  void ResetWindows(){
+      
+  }
+  
+      // Count Files Indexed Method
+  void CountFilesIndexed(){
+      
+  }
+  
+      // Main
+  public static void main(String[] args)  {
+       UserInterface object = new UserInterface();
+       object.displayUI();   
+  }
+  
 }
