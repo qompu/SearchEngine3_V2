@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Search Engine.
+ * COP 2805C (Java II) Project
+ * Team: Coffee123: Adriel Lopez, Manuel Tamayo
  */
 package coffee123.searchengine3;
 
