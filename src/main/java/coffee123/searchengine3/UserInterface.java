@@ -13,7 +13,7 @@ import java.awt.Frame;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.Font;
-
+import java.awt.event.*;
 /**
  *
  * @author Team: Coffee123: Adriel Lopez, Manuel Tamayo
@@ -79,7 +79,7 @@ public class UserInterface {
   Button About = new Button("About");
   p3.add(About);
   fr.add(p3,BorderLayout.SOUTH); 
- 
+  
   
   // Set Bold Text for Labels
   Font BoldFont = new Font("Serif",Font.BOLD,12);
