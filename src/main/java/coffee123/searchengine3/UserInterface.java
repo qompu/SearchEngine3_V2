@@ -80,6 +80,36 @@ public class UserInterface {
   p3.add(About);
   fr.add(p3,BorderLayout.SOUTH); 
   
+ 
+  ///maintenance panel
+  Maintenance.addActionListener((ActionEvent e) -> {
+            Frame fr2=new Frame("Maintanace");
+            
+            fr2.setSize(300,300);
+            
+            fr2.setVisible(true);
+            Label label_one;
+            //diplays Success! label
+            label_one = new Label("Success!!");
+            label_one.setBounds(130,100,150,50);
+            fr2.add(label_one);
+            fr2.setLayout(null);
+            fr2.setVisible(true);
+            
+            
+            // disposes of window on x
+            fr2.addWindowListener(new WindowAdapter(){
+                ;
+                    
+                    @Override
+                    public void windowClosing(WindowEvent e){
+                        fr2.dispose(); 
+                    }
+                    
+            });
+  });
+ 
+  
   
   // Set Bold Text for Labels
   Font BoldFont = new Font("Serif",Font.BOLD,12);
