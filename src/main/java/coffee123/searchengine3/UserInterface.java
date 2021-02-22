@@ -167,48 +167,93 @@ public class UserInterface {
                     
             });
               // Set Bold Text for Labels
-  Font BoldFont = new Font("Serif",Font.BOLD,12);
-  lblSeachEngine.setFont(BoldFont);
-  lbl_Label1.setFont(BoldFont);
-  lbl_Title.setFont(BoldFont);
-  });
+            Font BoldFont = new Font("Serif",Font.BOLD,12);
+            lblSeachEngine.setFont(BoldFont);
+            lbl_Label1.setFont(BoldFont);
+            lbl_Title.setFont(BoldFont);
+            
+              // AddFile Button Action Listener
+            AddFile.addActionListener((ActionEvent ae) -> {
+            AddFileMethod();
+            });
+            
+              // Rebuild_Outofdate Button Action Listener
+            Rebuild_Outofdate.addActionListener((ActionEvent ae) -> {
+            Rebuild_OutofdateMethod();
+            });
+            
+              // RemoveSelectedFiles Button Action Listener
+            RemoveSelectedFiles.addActionListener((ActionEvent ae) -> {
+            RemoveSelectedFilesMethod();
+            });
+            
+              // ResetWindows Button Action Listener
+            ResetWindows.addActionListener((ActionEvent ae) -> {
+            ResetWindowsMethod();
+            });
+            
+            
+            
+            }); // END Maintenance Method
  
-  
-  
   // Set Bold Text for Labels
   Font BoldFont = new Font("Serif",Font.BOLD,12);
   lblSeachEngine.setFont(BoldFont);
   lblLabel1.setFont(BoldFont);
+  
+  // Search Button Action Listener
+  Search.addActionListener((ActionEvent e) -> {
+  SearchMethod();
+  });
+
+    // About Button Action Listener
+  About.addActionListener((ActionEvent e) -> {
+  AboutMethod();
+  });
+
+ 
     
-}
+} // displayUI() END
+  
+  
+  
   // Search Method
-  void Search(){
-      
+  void SearchMethod(){
+    // Temp 
+    System.out.println("Success! Search button was clicked.");
   }
   
     // About Method
-  void About(){
-      
+  void AboutMethod(){
+   // Temp 
+    System.out.println("Success! About button was clicked.");   
   }
   
     // AddFile Method
-  void AddFile(){
+  void AddFileMethod(){
+      // Temp 
+    System.out.println("Success! AddFile button was clicked.");
       
   }
   
     // Rebuild Out-of-date Method
-  void Rebuild_Outofdate(){
-      
+  void Rebuild_OutofdateMethod(){
+      // Temp 
+    System.out.println("Success! Rebuild_Outofdate button was clicked.");
+        
   }
   
     // Remove selected files Method
-  void RemoveSelectedFiles(){
-      
+  void RemoveSelectedFilesMethod(){
+       // Temp 
+    System.out.println("Success! RemoveSelectedFiles button was clicked.");
+             
   }
   
     // Reset Windows Method
-  void ResetWindows(){
-      
+  void ResetWindowsMethod(){
+      // Temp 
+    System.out.println("Success! ResetWindows button was clicked.");
   }
   
       // Count Files Indexed Method
