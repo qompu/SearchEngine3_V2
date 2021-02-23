@@ -1,5 +1,6 @@
 /*
- * Search Engine.
+ * Search Engine. 
+ *GUI for future search engine 
  * COP 2805C (Java II) Project
  * Team: Coffee123: Adriel Lopez, Manuel Tamayo
  */
