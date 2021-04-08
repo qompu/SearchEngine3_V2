@@ -49,7 +49,7 @@ public class UserInterface {
   Label lblLabel1 =new Label("");
   Label lblSearchTerms = new Label("Search Terms:");
   TextField txtSearchTerms = new TextField(20);
-  /* CHECKBOX REMOVED
+  /* Checkboxes remmed out
   Label lblAllTerms =new Label("All of the Search terms");
   Label lblAnyTerms =new Label("Any of the Search terms");
   Label lblExactTerms =new Label("Exact Phrase");
@@ -67,9 +67,9 @@ public class UserInterface {
   p.setLayout(new GridLayout(7,2));  // 7 rows 2 columns
   p.add(lblSeachEngine);  p.add(lblLabel1);
   p.add(lblSearchTerms);  p.add(txtSearchTerms);
- // p.add(lblAllTerms);  p.add(checkBox1); // checkbox
- // p.add(lblAnyTerms);  p.add(checkBox2); // checkbox
- // p.add(lblExactTerms);  p.add(checkBox3); // checkbox
+ // p.add(lblAllTerms);  p.add(checkBox1); // Checkboxes remmed out
+ // p.add(lblAnyTerms);  p.add(checkBox2); // Checkboxes remmed out
+ // p.add(lblExactTerms);  p.add(checkBox3); // Checkboxes remmed out
   Button Search=new Button("Search");
   p.add(Search);  p.add(lblBlank1); 
   p.add(lblResults); // p.add(txtResults);
