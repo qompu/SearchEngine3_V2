@@ -59,10 +59,10 @@ import org.apache.lucene.store.FSDirectory;
 public class MainFunctions {
     
     // Directory that contains the Lucene index
-    private static final String INDEX_DIR = "c:/temp/indexedFiles";
+    protected static final String INDEX_DIR = "c:/temp/indexedFiles";
     
     // Directory that contains the text files to be indexed
-    private static final String DOC_DIR = "c:/temp/readFiles";
+    protected static final String DOC_DIR = "c:/temp/readFiles";
 
        protected static void indexDoc(IndexWriter writer, Path file, long lastModified) throws IOException 
     {
@@ -140,7 +140,7 @@ protected static TopDocs searchInContent(String textToFind, IndexSearcher search
 
         // deleteEntriesFromIndexUsingTerm() not fully functional.
         // Requires debugging and testing
-public static void deleteEntriesFromIndexUsingQuery() throws IOException, ParseException, Exception {
+protected static void deleteEntriesFromIndexUsingQuery() throws IOException, ParseException, Exception {
 
  //System.out.println("Deleting documents with field '" + term.field() + "' with text '" + term.text() + "'");
 	    System.out.println("Deleting index entries with defined term" );
@@ -184,5 +184,40 @@ public static void deleteEntriesFromIndexUsingQuery() throws IOException, ParseE
            }
   
 	}
+
+protected static void indexFolder() {
+     
+        System.out.println( "Indexing files" ); 
+        //Folder to be indexed: DOC_DIR
+        //Output folder: INDEX_DIR
+ 
+        final Path docDir = Paths.get(DOC_DIR);
+ 
+        try
+        {
+            //org.apache.lucene.store.Directory instance
+            Directory dir = FSDirectory.open( Paths.get(INDEX_DIR) );
+             
+            //analyzer with the default stop words
+            Analyzer analyzer = new StandardAnalyzer();
+             
+            //IndexWriter Configuration
+            IndexWriterConfig iwc = new IndexWriterConfig(analyzer);
+            iwc.setOpenMode(OpenMode.CREATE_OR_APPEND);
+             
+            //IndexWriter writes new index files to the directory
+            IndexWriter writer = new IndexWriter(dir, iwc);
+             
+            //Its recursive method to iterate all files and directories
+            MainFunctions.indexDocs(writer, docDir);
+ 
+            writer.close();
+        } 
+        catch (IOException e) 
+        {
+            e.printStackTrace();
+        }
+        
+}
 
 }
