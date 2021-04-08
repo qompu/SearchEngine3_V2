@@ -5,8 +5,8 @@
  * and the team decided that AWT would be easier to troubleshoot. 
  * We may use Swing in future versions.
  * GUI for future search engine 
- * COP 2805C (Java II) Project
- * Team: Coffee123: Adriel Lopez, Manuel Tamayo
+ * COP 2805C (Java II) Project 
+ * Team: Coffee123: Adriel Lopez, Manuel Tamayo 
  */
 package coffee123.searchengine3;
 
@@ -73,14 +73,14 @@ public class UserInterface {
   Button Search=new Button("Search");
   p.add(Search);  p.add(lblBlank1); 
   p.add(lblResults); // p.add(txtResults);
-  TextArea OutText = new TextArea(10,65); // Output area
+//  TextArea OutText = new TextArea(10,65); // Output area
   
   p1.add(p);
   fr.add(p1,BorderLayout.NORTH);   
   
   // Left panel
   p2.add(lblResults);
-  p2.add(OutText);
+//  p2.add(OutText);
   fr.add(p2,BorderLayout.WEST); 
 
  // Bottom panel
@@ -245,15 +245,16 @@ public class UserInterface {
   
     // Rebuild Out-of-date Method
   void Rebuild_OutofdateMethod(){
-      // Temp 
-    System.out.println("Success! Rebuild_Outofdate button was clicked.");
+   System.out.println("Indexing folder " + MainFunctions.INDEX_DIR);
+    MainFunctions.indexFolder();
         
   }
   
     // Remove selected files Method
   void RemoveSelectedFilesMethod(){
        // Temp 
-    System.out.println("Success! RemoveSelectedFiles button was clicked.");
+    System.out.println("Removing docs from index " + MainFunctions.INDEX_DIR);
+   // MainFunctions...
              
   }
   
