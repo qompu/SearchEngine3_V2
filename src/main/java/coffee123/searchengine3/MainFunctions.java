@@ -220,4 +220,23 @@ protected static void indexFolder() {
         
 }
 
+protected static void searchFolder(String myString) throws IOException, Exception {
+        //Create lucene searcher. It search over a single IndexReader.
+        IndexSearcher searcher = createSearcher();
+         
+       // String myString = "cottage";
+        //Search indexed contents using search term
+        TopDocs foundDocs = MainFunctions.searchInContent(myString, searcher);  // search for myString should return file data1.txt and  data2.txt 
+           
+        //Total found documents
+        System.out.println("'" + myString + "' " + "Total Results :: " + foundDocs.totalHits);
+         
+        //prints out the path of files with the searched term
+        for (ScoreDoc sd : foundDocs.scoreDocs) 
+        {
+            Document d = searcher.doc(sd.doc);
+            System.out.println("Path : "+ d.get("path") + ", Score : " + sd.score);
+        }
+    }
+
 }
