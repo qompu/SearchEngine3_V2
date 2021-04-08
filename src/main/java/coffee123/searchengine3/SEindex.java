@@ -90,8 +90,9 @@ public class SEindex {
         }
         
         
-       //DELETE ENTRIES	
-		MainFunctions.deleteEntriesFromIndexUsingQuery();
+       //DELETE ENTRIES	TEST
+        //      String deleteString = "ipsum";
+	//	MainFunctions.deleteEntriesFromIndexUsingQuery(deleteString);
 
         
         
