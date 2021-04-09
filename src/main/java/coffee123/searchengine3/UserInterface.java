@@ -70,17 +70,17 @@ public class UserInterface {
  // p.add(lblAllTerms);  p.add(checkBox1); // Checkboxes remmed out
  // p.add(lblAnyTerms);  p.add(checkBox2); // Checkboxes remmed out
  // p.add(lblExactTerms);  p.add(checkBox3); // Checkboxes remmed out
-  Button Search=new Button("Search");
+  Button Search=new Button("Search"); 
   p.add(Search);  p.add(lblBlank1); 
   p.add(lblResults); // p.add(txtResults);
-//  TextArea OutText = new TextArea(10,65); // Output area
+  TextArea OutText = new TextArea(10,65); // Output area
   
   p1.add(p);
   fr.add(p1,BorderLayout.NORTH);   
   
   // Left panel
   p2.add(lblResults);
-//  p2.add(OutText);
+  p2.add(OutText);
   fr.add(p2,BorderLayout.WEST); 
 
  // Bottom panel
@@ -115,9 +115,7 @@ public class UserInterface {
             label_one = new Label("  Success!!");
             
             
-            
-
-            fr2.setVisible(true);
+          
             fr2.setLocationRelativeTo(null); // center the frame
             
                // Top maintenance panel  NORTH
@@ -200,7 +198,7 @@ public class UserInterface {
             });
             
             
-            
+            fr2.setSize(600,500); 
             }); // END Maintenance Method
  
   // Set Bold Text for Labels
@@ -218,7 +216,7 @@ public class UserInterface {
   AboutMethod();
   });
 
- 
+ fr.setVisible(true); 
     
 } // displayUI() END
   
