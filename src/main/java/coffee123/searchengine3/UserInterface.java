@@ -1,10 +1,5 @@
 /*
  * Search Engine. 
- * GUI for future search engine. 
- * AWT was chosen after a UI was built by Adriel using the Netbeans IDE 
- * and the team decided that AWT would be easier to troubleshoot. 
- * We may use Swing in future versions.
- * GUI for future search engine 
  * COP 2805C (Java II) Project 
  * Team: Coffee123: Adriel Lopez, Manuel Tamayo 
  */
@@ -16,6 +11,10 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.Font;
 import java.awt.event.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import org.apache.lucene.queryparser.classic.ParseException;
 
 /**
  *
@@ -86,8 +85,8 @@ public class UserInterface {
  // Bottom panel
   Button Maintenance = new Button("Maintenance");
   p3.add(Maintenance);
-  Label lblNumOfFiles = new Label("Number of Files Indexed = 0");
-  p3.add(lblNumOfFiles);
+//  Label lblNumOfFiles = new Label("Number of Files Indexed = 0");
+//  p3.add(lblNumOfFiles);
   Button About = new Button("About");
   p3.add(About);
   fr.add(p3,BorderLayout.SOUTH); 
@@ -107,47 +106,39 @@ public class UserInterface {
 
             
             Label lbl_Title =new Label("  SEARCH ENGINE - INDEX MAINTENANCE");
-            Label lbl_Label1 =new Label("  ");
-            Label lbl_FileName =new Label("  File Name");
-            Label lbl_Status =new Label("  Status");           
-            Label label_one;
-            //diplays Success! label
-            label_one = new Label("  Success!!");
+
             
             
           
             fr2.setLocationRelativeTo(null); // center the frame
             
                // Top maintenance panel  NORTH
-            p_M.setLayout(new GridLayout(2,2));  // 3 rows 2 columns
-            p_M.add(lbl_Title); p_M.add(lbl_Label1);
-            p_M.add(lbl_FileName); p_M.add(lbl_Status);
+            p_M.setLayout(new GridLayout(2,2));  
+            p_M.add(lbl_Title);
             fr2.add(p_M,BorderLayout.NORTH); 
             
             
               // Left panel  WEST      
-            p_M2.add(label_one); //diplays Success! label
+  
             fr2.add(p_M2,BorderLayout.WEST); 
             
              // Bottom panel
-            p_M_Outside.setLayout(new GridLayout(2,3));  // 2 rows 3 columns
+            p_M_Outside.setLayout(new GridLayout(2,3));  
 
-            Button AddFile = new Button("Add File");  
+      
             Button Rebuild_Outofdate = new Button("Rebuild Out-of-date");
             Button RemoveSelectedFiles = new Button("Remove Selected Files"); 
-            Button ResetWindows = new Button("Reset Windows");  
-            Label lblNumOfFiles2 = new Label("Number of Files Indexed = 0");
+          
             Label SEversion = new Label("Search Engine V. 1.1");
             
              //Row 1 
-            p_M3.add(AddFile);
+
             p_M3.add(Rebuild_Outofdate);
             p_M3.add(RemoveSelectedFiles);
 
 
              // Row 2
-            p_M4.add(ResetWindows);
-            p_M4.add(lblNumOfFiles2);
+
             p_M4.add(SEversion);
            
 
@@ -174,13 +165,10 @@ public class UserInterface {
               // Set Bold Text for Labels
             Font BoldFont = new Font("Serif",Font.BOLD,12);
             lblSeachEngine.setFont(BoldFont);
-            lbl_Label1.setFont(BoldFont);
+         //   lbl_Label1.setFont(BoldFont);
             lbl_Title.setFont(BoldFont);
             
-              // AddFile Button Action Listener
-            AddFile.addActionListener((ActionEvent ae) -> {
-            AddFileMethod();
-            });
+
             
               // Rebuild_Outofdate Button Action Listener
             Rebuild_Outofdate.addActionListener((ActionEvent ae) -> {
@@ -189,13 +177,14 @@ public class UserInterface {
             
               // RemoveSelectedFiles Button Action Listener
             RemoveSelectedFiles.addActionListener((ActionEvent ae) -> {
-            RemoveSelectedFilesMethod();
+                try {
+                    RemoveSelectedFilesMethod();
+                } catch (Exception ex) {
+                    Logger.getLogger(UserInterface.class.getName()).log(Level.SEVERE, null, ex);
+                }
             });
             
-              // ResetWindows Button Action Listener
-            ResetWindows.addActionListener((ActionEvent ae) -> {
-            ResetWindowsMethod();
-            });
+  
             
             
             fr2.setSize(600,500); 
@@ -234,38 +223,48 @@ public class UserInterface {
     System.out.println("Success! About button was clicked.");   
   }
   
-    // AddFile Method
-  void AddFileMethod(){
-      // Temp 
-    System.out.println("Success! AddFile button was clicked.");
-      
-  }
+
   
     // Rebuild Out-of-date Method
   void Rebuild_OutofdateMethod(){
-   System.out.println("Indexing folder " + MainFunctions.INDEX_DIR);
-    MainFunctions.indexFolder();
+    
+    int result = JOptionPane.showConfirmDialog(null,"Rebuild the folder index?", MainFunctions.INDEX_DIR,
+         JOptionPane.YES_NO_OPTION,
+         JOptionPane.QUESTION_MESSAGE);
+        if(result == JOptionPane.YES_OPTION){
+              // label.setText("selected: Yes");
+              System.out.println("Indexing folder " + MainFunctions.INDEX_DIR);
+              MainFunctions.indexFolder();
+              JOptionPane.showMessageDialog(null, "The folder was indexed ","Index: " + MainFunctions.INDEX_DIR, JOptionPane.INFORMATION_MESSAGE);
+               
+            }else if (result == JOptionPane.NO_OPTION){
+                JOptionPane.showMessageDialog(null, "The folder was NOT indexed ","Index: " + MainFunctions.INDEX_DIR, JOptionPane.INFORMATION_MESSAGE);
+              // label.setText("selected: No");
+            }else {
+                JOptionPane.showMessageDialog(null, "The folder was NOT indexed ","Index: " + MainFunctions.INDEX_DIR, JOptionPane.INFORMATION_MESSAGE);
+              // label.setText("None selected");
+            }
+    
         
   }
   
     // Remove selected files Method
-  void RemoveSelectedFilesMethod(){
+  void RemoveSelectedFilesMethod() throws ParseException, Exception{
        // Temp 
     System.out.println("Removing docs from index " + MainFunctions.INDEX_DIR);
-   // MainFunctions...
-             
+   //  Get term from user to delete from index docs containing term
+     String myString = JOptionPane.showInputDialog("Delete from index docs containing term:");
+     if(myString.isEmpty() ){ // if empty 
+        JOptionPane.showMessageDialog(null, "No docs were removed from the index ","Index: " + MainFunctions.INDEX_DIR, JOptionPane.INFORMATION_MESSAGE);  
+    } 
+     else {  // delete docs from index and diplay message
+         MainFunctions.deleteEntriesFromIndexUsingQuery(myString);
+         JOptionPane.showMessageDialog(null, "Docs were removed from the index ","Index: " + MainFunctions.INDEX_DIR, JOptionPane.INFORMATION_MESSAGE);
+     }
+
   }
   
-    // Reset Windows Method
-  void ResetWindowsMethod(){
-      // Temp 
-    System.out.println("Success! ResetWindows button was clicked.");
-  }
-  
-      // Count Files Indexed Method
-  void CountFilesIndexed(){
-      
-  }
+
   
       // Main
   public static void main(String[] args)  {
