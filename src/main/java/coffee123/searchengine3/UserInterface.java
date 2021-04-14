@@ -61,7 +61,6 @@ public class UserInterface {
   Label lblBlank1 = new Label("");
 
   
-  
   // Top panel  
   p.setLayout(new GridLayout(7,2));  // 7 rows 2 columns
   p.add(lblSeachEngine);  p.add(lblLabel1);
