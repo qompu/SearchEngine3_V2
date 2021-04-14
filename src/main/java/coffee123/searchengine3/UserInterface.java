@@ -57,7 +57,7 @@ public class UserInterface {
   Checkbox checkBox2 = new Checkbox("", cbg, false);
   Checkbox checkBox3 = new Checkbox("", cbg, false);
   */
-  Label lblResults = new Label("Results");
+ // Label lblResults = new Label("Results");
   Label lblBlank1 = new Label("");
 
   
@@ -71,7 +71,7 @@ public class UserInterface {
  // p.add(lblExactTerms);  p.add(checkBox3); // Checkboxes remmed out
   Button Search=new Button("Search"); 
   p.add(Search);  p.add(lblBlank1); 
-  p.add(lblResults); // p.add(txtResults);
+  // p.add(lblResults); // p.add(txtResults);
 
   TextArea OutText = new TextArea("temp text",10,65); // Output area
   String mySearchString = txtSearchTerms.getText(); // Get the text from text box
