@@ -3,8 +3,6 @@
  * COP 2805C (Java II) Project 
  * Team: Coffee123: Adriel Lopez, Manuel Tamayo 
  */
-//...
-//temp upload 4 13
 package coffee123.searchengine3;
 
 import java.awt.*;
@@ -75,6 +73,8 @@ public class UserInterface {
   p.add(Search);  p.add(lblBlank1); 
   p.add(lblResults); // p.add(txtResults);
   TextArea OutText = new TextArea(10,65); // Output area
+  
+  OutText.append("-----SE V2-----\n by coffee123\n------------------\n"); //format for output
   
   p1.add(p);
   fr.add(p1,BorderLayout.NORTH);   
@@ -199,7 +199,7 @@ public class UserInterface {
   
   // Search Button Action Listener
   Search.addActionListener((ActionEvent e) -> {
-  SearchMethod();
+  SearchMethod(txtSearchTerms.getText(),OutText);  //Call to search box content and OutText, the output text box
   });
 
     // About Button Action Listener
@@ -214,9 +214,16 @@ public class UserInterface {
   
   
   // Search Method
-  void SearchMethod(){
+  void SearchMethod(String MytxtSearchTerms,TextArea OutText) {
     // Temp 
     System.out.println("Success! Search button was clicked.");
+    OutText.append("Search terms: " + MytxtSearchTerms + "\n"); //format for output
+      try {
+          MainFunctions.searchFolder(MytxtSearchTerms,OutText);
+      } catch (Exception ex) {
+          System.out.println("Index folder not found error: " + MainFunctions.DOC_DIR);
+          Logger.getLogger(UserInterface.class.getName()).log(Level.SEVERE, null, ex);
+      }
   }
   
     // About Method
@@ -230,7 +237,7 @@ public class UserInterface {
     // Rebuild Out-of-date Method
   void Rebuild_OutofdateMethod(){
     
-    int result = JOptionPane.showConfirmDialog(null,"Rebuild the folder index?", MainFunctions.INDEX_DIR,
+    int result = JOptionPane.showConfirmDialog(null,"Rebuild the folder index?", MainFunctions.DOC_DIR,
          JOptionPane.YES_NO_OPTION,
          JOptionPane.QUESTION_MESSAGE);
         if(result == JOptionPane.YES_OPTION){
@@ -275,3 +282,4 @@ public class UserInterface {
   }
   
 }
+
