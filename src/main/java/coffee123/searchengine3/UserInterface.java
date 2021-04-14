@@ -72,15 +72,17 @@ public class UserInterface {
   Button Search=new Button("Search"); 
   p.add(Search);  p.add(lblBlank1); 
   p.add(lblResults); // p.add(txtResults);
-  String tempS = " test";
-  TextArea OutText = new TextArea(tempS,10,65); // Output area
+
+  TextArea OutText = new TextArea("temp text",10,65); // Output area
   String mySearchString = txtSearchTerms.getText(); // Get the text from text box
   p2.add(OutText);
-     // Search Button Action Listener
+  
+  
+     // Search Button Action Listener  
   Search.addActionListener((ActionEvent e) -> {
   SearchMethod(mySearchString);
-  OutText.append(mySearchString + "\n");
-  p2.add(OutText);
+
+  
  
   });
 
@@ -221,18 +223,19 @@ public class UserInterface {
   
   
   // Search Method
-  public String SearchMethod(String txtSearchTerms){
+  void SearchMethod(String txtSearchTerms){
     // Temp 
-    String searchString = "";
+
     System.out.println("Success! Search button was clicked.");
-    
-  return searchString;
+    // ADD Swing frame here
+
   }
   
     // About Method
   void AboutMethod(){
    // Temp 
-    System.out.println("Success! About button was clicked.");   
+    System.out.println("Success! About button was clicked.");  
+   // ADD Swing frame here
   }
   
 
