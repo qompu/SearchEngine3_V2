@@ -72,14 +72,26 @@ public class UserInterface {
   Button Search=new Button("Search"); 
   p.add(Search);  p.add(lblBlank1); 
   p.add(lblResults); // p.add(txtResults);
-  TextArea OutText = new TextArea(10,65); // Output area
+  String tempS = " test";
+  TextArea OutText = new TextArea(tempS,10,65); // Output area
+  String mySearchString = txtSearchTerms.getText(); // Get the text from text box
+  p2.add(OutText);
+     // Search Button Action Listener
+  Search.addActionListener((ActionEvent e) -> {
+  SearchMethod(mySearchString);
+  OutText.append(mySearchString + "\n");
+  p2.add(OutText);
+ 
+  });
+
+  
   
   p1.add(p);
   fr.add(p1,BorderLayout.NORTH);   
   
   // Left panel
   p2.add(lblResults);
-  p2.add(OutText);
+ // p2.add(OutText);
   fr.add(p2,BorderLayout.WEST); 
 
  // Bottom panel
@@ -118,9 +130,9 @@ public class UserInterface {
             fr2.add(p_M,BorderLayout.NORTH); 
             
             
-              // Left panel  WEST      
+              // Left panel  WEST: available for additional output    
   
-            fr2.add(p_M2,BorderLayout.WEST); 
+           fr2.add(p_M2,BorderLayout.WEST); 
             
              // Bottom panel
             p_M_Outside.setLayout(new GridLayout(2,3));  
@@ -195,10 +207,7 @@ public class UserInterface {
   lblSeachEngine.setFont(BoldFont);
   lblLabel1.setFont(BoldFont);
   
-  // Search Button Action Listener
-  Search.addActionListener((ActionEvent e) -> {
-  SearchMethod();
-  });
+
 
     // About Button Action Listener
   About.addActionListener((ActionEvent e) -> {
@@ -212,9 +221,12 @@ public class UserInterface {
   
   
   // Search Method
-  void SearchMethod(){
+  public String SearchMethod(String txtSearchTerms){
     // Temp 
+    String searchString = "";
     System.out.println("Success! Search button was clicked.");
+    
+  return searchString;
   }
   
     // About Method
