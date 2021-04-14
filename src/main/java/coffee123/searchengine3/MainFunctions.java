@@ -21,6 +21,7 @@
 
 package coffee123.searchengine3;
 
+import java.awt.TextArea;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.FileVisitResult;
@@ -221,22 +222,24 @@ protected static void indexFolder() {
         
 }
 
-protected static void searchFolder(String myString) throws IOException, Exception {
+protected static void searchFolder(String myString,TextArea OutText) throws IOException, Exception {
         //Create lucene searcher. It search over a single IndexReader.
         IndexSearcher searcher = createSearcher();
          
-       // String myString = "cottage";
+       
         //Search indexed contents using search term
-        TopDocs foundDocs = MainFunctions.searchInContent(myString, searcher);  // search for myString should return file data1.txt and  data2.txt 
+        TopDocs foundDocs = MainFunctions.searchInContent(myString, searcher);  // search for myString 
            
         //Total found documents
-        System.out.println("'" + myString + "' " + "Total Results :: " + foundDocs.totalHits);
+        System.out.println("'" + myString + "' " + "Total Results :: " + foundDocs.totalHits); //console output
+        OutText.append("'" + myString + "' " + "Total Results :: " + foundDocs.totalHits + "\n"); //text box output
          
         //prints out the path of files with the searched term
         for (ScoreDoc sd : foundDocs.scoreDocs) 
         {
             Document d = searcher.doc(sd.doc);
-            System.out.println("Path : "+ d.get("path") + ", Score : " + sd.score);
+            System.out.println("Path : "+ d.get("path") + ", Score : " + sd.score); //console output
+            OutText.append("Path : "+ d.get("path") + ", Score : " + sd.score + "\n"); //text box output
         }
     }
 
