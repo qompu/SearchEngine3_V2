@@ -17,8 +17,9 @@
  * (Brian Will) (21:00) https://www.youtube.com/watch?v=OHX24mNw2Jg
  */
 
-package coffee123.searchengine3;
+//temp upload 4 13 test sync
 
+package coffee123.searchengine3;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -140,10 +141,10 @@ protected static TopDocs searchInContent(String textToFind, IndexSearcher search
 
         // deleteEntriesFromIndexUsingTerm() not fully functional.
         // Requires debugging and testing
-protected static void deleteEntriesFromIndexUsingQuery() throws IOException, ParseException, Exception {
+protected static void deleteEntriesFromIndexUsingQuery(String myString) throws IOException, ParseException, Exception {
 
  //System.out.println("Deleting documents with field '" + term.field() + "' with text '" + term.text() + "'");
-	    System.out.println("Deleting index entries with defined term" );
+	    System.out.println("Deleting index entries containing string '"+ myString +"'" );
                 
             Directory directory = FSDirectory.open( Paths.get(INDEX_DIR) );
              
