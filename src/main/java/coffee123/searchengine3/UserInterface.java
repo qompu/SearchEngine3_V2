@@ -57,9 +57,10 @@ public class UserInterface {
   Checkbox checkBox2 = new Checkbox("", cbg, false);
   Checkbox checkBox3 = new Checkbox("", cbg, false);
   */
- // Label lblResults = new Label("Results");
+  Label lblResults = new Label("Results");
   Label lblBlank1 = new Label("");
 
+  
   
   // Top panel  
   p.setLayout(new GridLayout(7,2));  // 7 rows 2 columns
@@ -70,29 +71,15 @@ public class UserInterface {
  // p.add(lblExactTerms);  p.add(checkBox3); // Checkboxes remmed out
   Button Search=new Button("Search"); 
   p.add(Search);  p.add(lblBlank1); 
-  // p.add(lblResults); // p.add(txtResults);
-
-  TextArea OutText = new TextArea("temp text",10,65); // Output area
-  String mySearchString = txtSearchTerms.getText(); // Get the text from text box
-  p2.add(OutText);
-  
-  
-     // Search Button Action Listener  
-  Search.addActionListener((ActionEvent e) -> {
-  SearchMethod(mySearchString);
-
-  
- 
-  });
-
-  
+  p.add(lblResults); // p.add(txtResults);
+  TextArea OutText = new TextArea(10,65); // Output area
   
   p1.add(p);
   fr.add(p1,BorderLayout.NORTH);   
   
   // Left panel
   p2.add(lblResults);
- // p2.add(OutText);
+  p2.add(OutText);
   fr.add(p2,BorderLayout.WEST); 
 
  // Bottom panel
@@ -131,9 +118,9 @@ public class UserInterface {
             fr2.add(p_M,BorderLayout.NORTH); 
             
             
-              // Left panel  WEST: available for additional output    
+              // Left panel  WEST      
   
-           fr2.add(p_M2,BorderLayout.WEST); 
+            fr2.add(p_M2,BorderLayout.WEST); 
             
              // Bottom panel
             p_M_Outside.setLayout(new GridLayout(2,3));  
@@ -208,7 +195,10 @@ public class UserInterface {
   lblSeachEngine.setFont(BoldFont);
   lblLabel1.setFont(BoldFont);
   
-
+  // Search Button Action Listener
+  Search.addActionListener((ActionEvent e) -> {
+  SearchMethod();
+  });
 
     // About Button Action Listener
   About.addActionListener((ActionEvent e) -> {
@@ -222,19 +212,15 @@ public class UserInterface {
   
   
   // Search Method
-  void SearchMethod(String txtSearchTerms){
+  void SearchMethod(){
     // Temp 
-
     System.out.println("Success! Search button was clicked.");
-    // ADD Swing frame here
-
   }
   
     // About Method
   void AboutMethod(){
    // Temp 
-    System.out.println("Success! About button was clicked.");  
-   // ADD Swing frame here
+    System.out.println("Success! About button was clicked.");   
   }
   
 
