@@ -131,7 +131,7 @@ public class UserInterface {
             Button Rebuild_Outofdate = new Button("Rebuild Out-of-date");
             Button RemoveSelectedFiles = new Button("Remove Selected Files"); 
           
-            Label SEversion = new Label("Search Engine V. 1.1");
+            Label SEversion = new Label("Search Engine V. 2.0");
             
              //Row 1 
 
