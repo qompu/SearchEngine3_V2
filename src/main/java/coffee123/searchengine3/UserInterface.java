@@ -75,8 +75,14 @@ public class UserInterface {
   p.add(lblTryBooleanSearch);   p.add(lblFuzzySearchSearch); // p.add(lblMoreinfo);  // ADD URL
   p.add(lblResults); 
   TextArea OutText = new TextArea(10,65); // Output area
-  
-  OutText.append("-----SE V2-----\n by coffee123\n------------------\n"); //format for output
+  String LuceneInfo = "For search options available visit the Lucene 8.8.1 query documentation page: \n" +
+             "https://lucene.apache.org/core/8_8_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html"
+          + "\n------------------\n";
+           
+
+  OutText.append("-----SE V2-----\n by coffee123"
+          + "\n------------------\n"
+          + LuceneInfo); //format for output
   
   p1.add(p);
   fr.add(p1,BorderLayout.NORTH);   
@@ -87,6 +93,7 @@ public class UserInterface {
   fr.add(p2,BorderLayout.WEST); 
 
  // Bottom panel
+
   Button Maintenance = new Button("Maintenance");
   p3.add(Maintenance);
 //  Label lblNumOfFiles = new Label("Number of Files Indexed = 0");
@@ -242,10 +249,7 @@ public class UserInterface {
     JOptionPane.showMessageDialog(null,"Cofee123 Search Engine is a high performance,\n" + 
             "Java based search engine that uses the Apache Lucene java library.  \n" +  "\n" +
             "Location of current folder to search: \n"+ MainFunctions.DOC_DIR + "\n" +
-            "Location of Lucene index files: \n"+ MainFunctions.INDEX_DIR + "\n" +  "\n" +   
-            "For search options available visit the Lucene 8.8.1 query documentation page: \n" +
-             "<html><a href='https://lucene.apache.org/core/8_8_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html'>https://lucene.apache.org/core/8_8_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html</a></html>"
-            , "About Coffee123 Search Engine " , JOptionPane.INFORMATION_MESSAGE); 
+            "Location of Lucene index files: \n"+ MainFunctions.INDEX_DIR + "\n" , "About Coffee123 Search Engine " , JOptionPane.INFORMATION_MESSAGE); 
   }
   
 
