@@ -3,7 +3,7 @@
  * COP 2805C (Java II) Project 
  * Team: Coffee123: Adriel Lopez, Manuel Tamayo 
  */
-//temp 0411421-2
+
 package coffee123.searchengine3;
 
 import java.awt.*;
@@ -49,30 +49,31 @@ public class UserInterface {
   Label lblLabel1 =new Label("");
   Label lblSearchTerms = new Label("Search Terms:");
   TextField txtSearchTerms = new TextField(20);
-  /* Checkboxes remmed out
-  Label lblAllTerms =new Label("All of the Search terms");
-  Label lblAnyTerms =new Label("Any of the Search terms");
-  Label lblExactTerms =new Label("Exact Phrase");
-  CheckboxGroup cbg = new CheckboxGroup();  
-  Checkbox checkBox1 = new Checkbox("", cbg, true);   
-  Checkbox checkBox2 = new Checkbox("", cbg, false);
-  Checkbox checkBox3 = new Checkbox("", cbg, false);
-  */
-  Label lblResults = new Label("Results");
-  Label lblBlank1 = new Label("");
+  // Checkboxes remmed out
+ // Label lblAllTerms =new Label("Exact Phrase");
+ // Label lblAnyTerms =new Label("Fuzzy Search");
+  Label lblTryBooleanSearch =new Label("Hint: Try a Boolean search using quotes with AND / OR.");
+  Label lblFuzzySearchSearch =new Label("For a 'fuzzy search' add a tilde ~ as the last character.");
+ // Label lblMoreinfo =new Label("https://lucene.apache.org/core/8_8_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html");
+//  CheckboxGroup cbg = new CheckboxGroup();  
+//  Checkbox checkBox1 = new Checkbox("", cbg, true);   
+//  Checkbox checkBox2 = new Checkbox("", cbg, false);
 
+  
+  Label lblResults = new Label("Results");
   
   
   // Top panel  
   p.setLayout(new GridLayout(7,2));  // 7 rows 2 columns
   p.add(lblSeachEngine);  p.add(lblLabel1);
   p.add(lblSearchTerms);  p.add(txtSearchTerms);
- // p.add(lblAllTerms);  p.add(checkBox1); // Checkboxes remmed out
- // p.add(lblAnyTerms);  p.add(checkBox2); // Checkboxes remmed out
- // p.add(lblExactTerms);  p.add(checkBox3); // Checkboxes remmed out
+  //p.add(lblAllTerms); // p.add(checkBox1); 
+  //p.add(lblAnyTerms); // p.add(checkBox2); 
+
   Button Search=new Button("Search"); 
-  p.add(Search);  p.add(lblBlank1); 
-  p.add(lblResults); // p.add(txtResults);
+  p.add(Search);  
+  p.add(lblTryBooleanSearch);   p.add(lblFuzzySearchSearch); // p.add(lblMoreinfo);  // ADD URL
+  p.add(lblResults); 
   TextArea OutText = new TextArea(10,65); // Output area
   
   OutText.append("-----SE V2-----\n by coffee123\n------------------\n"); //format for output
@@ -107,11 +108,16 @@ public class UserInterface {
             Panel p_M4 = new Panel();  // bottom 2
             Panel p_M_Outside = new Panel(); // bottom panel
 
+            TextArea OutText2 = new TextArea(20,35); // info area 
+            OutText2.append(">>>Location of current folder to search:\n"); 
+            OutText2.append(">>>"+ MainFunctions.DOC_DIR +"\n"); 
+            OutText2.append(">>>Location of Lucene index files:\n"); 
+            OutText2.append(">>>"+ MainFunctions.INDEX_DIR + "\n"); 
             
-            Label lbl_Title =new Label("  SEARCH ENGINE - INDEX MAINTENANCE");
+            Label lbl_Title = new Label("  SEARCH ENGINE - INDEX MAINTENANCE");
 
-            
-            
+            Label lbl_Info = new Label("  Info: " );
+
           
             fr2.setLocationRelativeTo(null); // center the frame
             
@@ -122,7 +128,9 @@ public class UserInterface {
             
             
               // Left panel  WEST      
-  
+            p_M2.add(lbl_Info);
+
+            p_M2.add(OutText2);
             fr2.add(p_M2,BorderLayout.WEST); 
             
              // Bottom panel
@@ -231,6 +239,13 @@ public class UserInterface {
   void AboutMethod(){
    // Temp 
     System.out.println("Success! About button was clicked.");   
+    JOptionPane.showMessageDialog(null,"Cofee123 Search Engine is a high performance,\n" + 
+            "Java based search engine that uses the Apache Lucene java library.  \n" +  "\n" +
+            "Location of current folder to search: \n"+ MainFunctions.DOC_DIR + "\n" +
+            "Location of Lucene index files: \n"+ MainFunctions.INDEX_DIR + "\n" +  "\n" +   
+            "For search options available visit the Lucene 8.8.1 query documentation page: \n" +
+             "<html><a href='https://lucene.apache.org/core/8_8_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html'>https://lucene.apache.org/core/8_8_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html</a></html>"
+            , "About Coffee123 Search Engine " , JOptionPane.INFORMATION_MESSAGE); 
   }
   
 
