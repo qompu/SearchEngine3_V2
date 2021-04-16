@@ -30,7 +30,7 @@ import org.apache.lucene.queryparser.classic.ParseException;
  *
  * @author Team: Coffee123: Adriel Lopez, Manuel Tamayo
  */
-public class UserInterface {
+public class UserInterface  {
     
 
   // Display User Interface Method
@@ -217,6 +217,7 @@ public class UserInterface {
   
   // Search Button Action Listener
   Search.addActionListener((ActionEvent e) -> {
+
   SearchMethod();
   });
 
@@ -230,29 +231,37 @@ public class UserInterface {
 } // displayUI() END
   
   
-  
   // Search Method
- void SearchMethod(){
+ void SearchMethod (){
       {
+
           // frame to display result of searh
           // on new window
- JFrame frame = new JFrame("Search Frame");
-      frame.setSize(400, 400);
-      // Set layout as null
-      frame.setLayout(null);
 
-      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      frame.setLocationRelativeTo(null);
-      frame.setVisible(true);
+            JFrame frame = new JFrame("Search Frame");
+
+
+            frame.setSize(400, 400);
+            // Set layout as null
+            frame.setLayout(null);
+            
+            
+            frame.add(txtSeachTerms);
+
+
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setLocationRelativeTo(null);
+    frame.setVisible(true);
       
-        Label lblResults = new Label("Results");
-        Label lblBlank1 = new Label("");
-        //p.add(lblResults);
+ 
+
       
           }
               
     // Temp 
     System.out.println("Success! Search button was clicked.");
+    
+    //code for future use 
    // OutText.append("Search terms: " + MytxtSearchTerms + "\n"); //format for output
     /*
     try {
