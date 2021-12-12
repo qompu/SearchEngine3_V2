@@ -1,8 +1,5 @@
-# SearchEngine3_V2
-Search Engine. 
+# SearchEngine3_V2 
 Proj-5:
-Collaboration summary:
-Adriel worked independently on his PC on the Beta branches without Git commits.
-Manuel worked on the Alpha branches with Git commits.
+Lucene based text search engine.
 
  
